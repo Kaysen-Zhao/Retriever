@@ -4,6 +4,40 @@
 ## 环境依赖
 `pip install -r requirements.txt`
 
+## 数据集格式
+
+```json
+[
+  {
+    "query": "XXX",
+    "positive_passages": [
+      {
+        "text": "XXX"
+      }
+    ],
+    "negative_passages": [
+      {
+        "text": "XXX"
+      },
+      {
+        "text": "XXX"
+      },
+      {
+        "text": "XXX"
+      },
+      {
+        "text": "XXX"
+      },
+      {
+        "text": "XXX"
+      }
+    ]
+  }
+]
+```
+
+$在进行数据集转换时，需要保存为jsonl格式$
+
 ## 数据集转换
 
 /vector/finetune/dataset.py
@@ -13,6 +47,8 @@ jsonl格式的训练数据放于/data/datasets下，分别命名为train.jsonl�
 Line51 将dataset_path 修改为jsonl格式数据集所在目录
 
 - 数据集转换 `python vector/finetune/dataset.py`
+
+
 
 ## 模型训练
 /vector/finetune/trainer_contriever.py

@@ -196,7 +196,7 @@ os.environ['MASTER_PORT'] = '5678'
 torch.distributed.init_process_group(backend="nccl",world_size=1,rank=0)
 local_rank = torch.distributed.get_rank()
 torch.cuda.set_device(local_rank)
-device = torch.device("cuda", 2)
+device = torch.device("cuda", local_rank)
 
 sampler = DistributedSampler(train_set)
 train_loader = DataLoader(train_set, batch_size=batch_size, collate_fn=collate, sampler=sampler)
